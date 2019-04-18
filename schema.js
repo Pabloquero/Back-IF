@@ -9,6 +9,28 @@ const {
 const axios = require("axios");
 const axiosRetry = require("axios-retry");
 
+//Component - Convenios
+
+const ConveniosType = new GraphQLObjectType({
+  name: "Convenios",
+  fields: () => ({
+    id: { type: GraphQLInt },
+    status: { type: GraphQLString },
+    acf: { type: ConvenioType }
+  })
+});
+
+const ConvenioType = new GraphQLObjectType({
+  name: "Convenio",
+  fields: () => ({
+    enunciado: { type: GraphQLString },
+    proyectos: { type: GraphQLString },
+    logo: { type: GraphQLString },
+    fondo: { type: GraphQLString },
+    texto: { type: GraphQLString }
+  })
+});
+
 //Component - Proyectos
 
 const ProyectosType = new GraphQLObjectType({
@@ -232,7 +254,7 @@ const ItemOportunidadesType = new GraphQLObjectType({
 
 // Consulta Raíz
 
-axiosRetry(axios, { retries: 3 });
+axiosRetry(axios, { retries: 6 });
 
 const RootQuery = new GraphQLObjectType({
   name: "RootQueryType",
@@ -243,6 +265,16 @@ const RootQuery = new GraphQLObjectType({
         return axios
           .get(
             "http://betafuenzalida.bylcomunicaciones.com/wp-json/wp/v2/proyectos"
+          )
+          .then(res => res.data);
+      }
+    },
+    convenios: {
+      type: new GraphQLList(ConveniosType),
+      resolve(parent, args) {
+        return axios
+          .get(
+            "http://betafuenzalida.bylcomunicaciones.com/wp-json/wp/v2/convenios"
           )
           .then(res => res.data);
       }
