@@ -233,11 +233,7 @@ const ACFOportunidadesType = new GraphQLObjectType({
   fields: () => ({
     imagen_de_fondo: { type: GraphQLString },
     titulo_oportunidades: { type: GraphQLString },
-    texto_oportunidades: { type: GraphQLString },
-    oportunidad_1: { type: ItemOportunidadesType },
-    oportunidad_2: { type: ItemOportunidadesType },
-    oportunidad_3: { type: ItemOportunidadesType },
-    oportunidad_4: { type: ItemOportunidadesType }
+    texto_oportunidades: { type: GraphQLString }
   })
 });
 
