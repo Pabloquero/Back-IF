@@ -4,7 +4,8 @@
   "description": "GraphQL Server para Inmobiliaria Fuenzalida",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
   "author": "Pablo Pizarro",
   "license": "MIT",
@@ -17,5 +18,8 @@
     "graphql": "^14.1.1",
     "mysql2": "^1.6.5",
     "sequelize": "^5.8.5"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.0"
   }
 }

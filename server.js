@@ -10,7 +10,7 @@ const db = new Sequelize(
   "admin_fuenzalida",
   "fuenzalida123",
   {
-    host: "66.33.203.42",
+    host: "mysql.betafuenzalida.bylcomunicaciones.com",
     dialect: "mysql",
     pool: {
       max: 5,
@@ -20,10 +20,6 @@ const db = new Sequelize(
     }
   }
 );
-
-db.authenticate()
-  .then(() => console.log("Database connected"))
-  .catch(err => console.log("Error: " + err));
 
 const app = express();
 
@@ -42,6 +38,10 @@ app.use(express.static("public"));
 app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "public", "index.html"));
 });
+
+db.authenticate()
+  .then(() => console.log("Database connected"))
+  .catch(err => console.log("Error: " + err));
 
 const PORT = process.env.PORT || 5000;
 
