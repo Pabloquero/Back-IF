@@ -6,6 +6,8 @@ const {
   GraphQLSchema
 } = require("graphql");
 
+const FormCompra = require("./models/formCompra");
+
 const axios = require("axios");
 const axiosRetry = require("axios-retry");
 
@@ -248,6 +250,20 @@ const ItemOportunidadesType = new GraphQLObjectType({
   })
 });
 
+//---------------- Forms Types -------------------
+
+const FormCompraType = new GraphQLObjectType({
+  name: "formCompra",
+  fields: () => ({
+    nombre: { type: GraphQLString },
+    telefono: { type: GraphQLString },
+    mail: { type: GraphQLString },
+    direccion: { type: GraphQLString },
+    comuna: { type: GraphQLString },
+    comentarios: { type: GraphQLString }
+  })
+});
+
 // Consulta Raíz
 
 axiosRetry(axios, { retries: 6 });
@@ -348,6 +364,35 @@ const RootQuery = new GraphQLObjectType({
   }
 });
 
+const Mutation = new GraphQLObjectType({
+  name: "Mutation",
+  fields: {
+    insertFormCompra: {
+      type: FormCompraType,
+      args: {
+        nombre: { type: GraphQLString },
+        telefono: { type: GraphQLString },
+        mail: { type: GraphQLString },
+        direccion: { type: GraphQLString },
+        comuna: { type: GraphQLString },
+        comentarios: { type: GraphQLString }
+      },
+      resolve(parent, args) {
+        let formCompra = new FormCompra({
+          nombre: args.nombre,
+          telefono: args.telefono,
+          mail: args.mail,
+          direccion: args.direccion,
+          comuna: args.comuna,
+          comentarios: args.comentarios
+        });
+        formCompra.save();
+      }
+    }
+  }
+});
+
 module.exports = new GraphQLSchema({
-  query: RootQuery
+  query: RootQuery,
+  mutation: Mutation
 });
