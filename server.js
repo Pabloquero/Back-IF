@@ -3,6 +3,27 @@ const graphqlHTTP = require("express-graphql");
 const cors = require("cors");
 const schema = require("./schema");
 const path = require("path");
+const Sequelize = require("sequelize");
+
+const db = new Sequelize(
+  "if_formularios",
+  "admin_fuenzalida",
+  "fuenzalida123",
+  {
+    host: "66.33.203.42",
+    dialect: "mysql",
+    pool: {
+      max: 5,
+      min: 0,
+      acquire: 30000,
+      idle: 10000
+    }
+  }
+);
+
+db.authenticate()
+  .then(() => console.log("Database connected"))
+  .catch(err => console.log("Error: " + err));
 
 const app = express();
 
