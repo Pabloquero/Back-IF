@@ -386,7 +386,8 @@ const Mutation = new GraphQLObjectType({
           comuna: args.comuna,
           comentarios: args.comentarios
         });
-        return formCompra.save();
+        formCompra.save();
+        return console.log("OK!");
       }
     }
   }
