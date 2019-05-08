@@ -7,6 +7,7 @@ const {
 } = require("graphql");
 
 const FormCompra = require("./models/formCompra");
+const FormContacto = require("./models/formContacto");
 
 const axios = require("axios");
 const axiosRetry = require("axios-retry");
@@ -264,6 +265,17 @@ const FormCompraType = new GraphQLObjectType({
   })
 });
 
+const FormContactoType = new GraphQLObjectType({
+  name: "formContacto",
+  fields: () => ({
+    nombre: { type: GraphQLString },
+    telefono: { type: GraphQLString },
+    mail: { type: GraphQLString },
+    mensaje: { type: GraphQLString },
+    categoria: { type: GraphQLString }
+  })
+});
+
 // Consulta Raíz
 
 axiosRetry(axios, { retries: 6 });
@@ -387,6 +399,27 @@ const Mutation = new GraphQLObjectType({
           comentarios: args.comentarios
         });
         formCompra.save();
+        return console.log("OK!");
+      }
+    },
+    insertFormContacto: {
+      type: FormContactoType,
+      args: {
+        nombre: { type: GraphQLString },
+        telefono: { type: GraphQLString },
+        mail: { type: GraphQLString },
+        mensaje: { type: GraphQLString },
+        categoria: { type: GraphQLString }
+      },
+      resolve(parent, args) {
+        let formContacto = new FormContacto({
+          nombre: args.nombre,
+          telefono: args.telefono,
+          mail: args.mail,
+          mensaje: args.mensaje,
+          categoria: args.categoria
+        });
+        formContacto.save();
         return console.log("OK!");
       }
     }
