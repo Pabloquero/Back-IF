@@ -1,7 +1,7 @@
 const Sequelize = require("sequelize");
 const db = require("../config/database");
 
-const FormContacto = db.define("contacto", {
+const FormContacto = db.define("contactos", {
   nombre: {
     type: Sequelize.STRING
   },
