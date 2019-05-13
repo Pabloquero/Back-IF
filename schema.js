@@ -8,6 +8,7 @@ const {
 
 const FormCompra = require("./models/formCompra");
 const FormContacto = require("./models/formContacto");
+const SendContacto = require("./mailer/sendContacto");
 
 const axios = require("axios");
 const axiosRetry = require("axios-retry");
@@ -398,7 +399,9 @@ const Mutation = new GraphQLObjectType({
           comuna: args.comuna,
           comentarios: args.comentarios
         });
-        return formCompra.save();
+        formCompra.save();
+        SendContacto({ args });
+        return console.log(args.nombre);
       }
     },
     insertFormContacto: {
