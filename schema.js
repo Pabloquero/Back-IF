@@ -8,6 +8,7 @@ const {
 
 const FormCompra = require("./models/formCompra");
 const FormContacto = require("./models/formContacto");
+const SendCompra = require("./mailer/sendCompra");
 const SendContacto = require("./mailer/sendContacto");
 
 const axios = require("axios");
@@ -400,8 +401,8 @@ const Mutation = new GraphQLObjectType({
           comentarios: args.comentarios
         });
         formCompra.save();
-        SendContacto({ args });
-        return console.log(args.nombre);
+        SendCompra({ args });
+        return console.log("ok!");
       }
     },
     insertFormContacto: {
@@ -421,7 +422,9 @@ const Mutation = new GraphQLObjectType({
           mensaje: args.mensaje,
           categoria: args.categoria
         });
-        return formContacto.save();
+        formContacto.save();
+        SendContacto({ args });
+        return console.log("ok!");
       }
     }
   }

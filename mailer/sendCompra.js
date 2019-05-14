@@ -2,8 +2,8 @@
 const nodemailer = require("nodemailer");
 
 // async..await is not allowed in global scope, must use a wrapper
-module.exports = function sendContacto({
-  args: { nombre, telefono, mail, mensaje, categoria }
+module.exports = function sendCompra({
+  args: { nombre, telefono, mail, direccion, comuna, comentarios }
 }) {
   // create reusable transporter object using the default SMTP transport
   let transporter = nodemailer.createTransport({
@@ -18,11 +18,11 @@ module.exports = function sendContacto({
 
   // send mail with defined transport object
   let info = transporter.sendMail({
-    from: '"Prueba 2 👻" <pruebaweb@grupobyl.cl>', // sender address
-    to: "ppizarro@grupobyl.cl", // list of receivers
-    subject: "Prueba fuenzalida 2 ✔", // Subject line
-    text: "TEST 2", // plain text body
-    html: `Nuevo envío de correo desde compra de propiedades:<br/>Nombre: ${nombre}<br/>Teléfono:${telefono}<br/>Mail: ${mail}<br/>Mensaje: ${mensaje}<br/>Categoria: ${categoria}<br/>` // html body
+    from: '"Prueba 👻" <pruebaweb@grupobyl.cl>', // sender address
+    to: "ppizarro@grupobyl.cl, dsanchez@grupobyl.cl", // list of receivers
+    subject: "Prueba fuenzalida ✔", // Subject line
+    text: "TEST", // plain text body
+    html: `Nuevo envío de correo desde compra de propiedades:<br/>Nombre: ${nombre}<br/>Teléfono:${telefono}<br/>Mail: ${mail}<br/>Dirección: ${direccion}<br/>Comuna: ${comuna}<br/>Comentarios: ${comentarios}` // html body
   });
 
   console.log("Message sent: %s", info.messageId);
