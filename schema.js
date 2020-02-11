@@ -267,8 +267,8 @@ const ACFSACType = new GraphQLObjectType({
   name: "ACFSAC",
   fields: () => ({
     imagen_de_fondo: { type: GraphQLString },
-    titulo_bullets: { type: GraphQLString },
-    titulo_bullets_2: { type: GraphQLString },
+    enunciado_bullets_1: { type: GraphQLString },
+    enunciado_bullets_2: { type: GraphQLString },
     bullet_sac_1: { type: BulletsSACType },
     bullet_sac_2: { type: BulletsSACType },
     bullet_sac_3: { type: BulletsSACType },
