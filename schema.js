@@ -266,12 +266,12 @@ const PagSACType = new GraphQLObjectType({
 const ACFSACType = new GraphQLObjectType({
   name: "ACFSAC",
   fields: () => ({
-    imagen_fondo: { type: GraphQLString },
+    imagen_de_fondo: { type: GraphQLString },
     titulo_bullets: { type: GraphQLString },
     titulo_bullets_2: { type: GraphQLString },
-    bullet_1: { type: BulletsSACType },
-    bullet_2: { type: BulletsSACType },
-    bullet_3: { type: BulletsSACType },
+    bullet_sac_1: { type: BulletsSACType },
+    bullet_sac_2: { type: BulletsSACType },
+    bullet_sac_3: { type: BulletsSACType },
     titulo_vivienda_1: { type: GraphQLString },
     titulo_vivienda_2: { type: GraphQLString },
     texto_vivienda: { type: GraphQLString },
