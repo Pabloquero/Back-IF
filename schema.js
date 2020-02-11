@@ -253,6 +253,35 @@ const ItemOportunidadesType = new GraphQLObjectType({
   })
 });
 
+//Pagina Servicio al CLiente
+const PagSACType = new GraphQLObjectType({
+  name: "pagSAC",
+  fields: () => ({
+    imagen_fondo: { type: GraphQLString },
+    titulo_bullets: { type: GraphQLString },
+    titulo_bullets_2: { type: GraphQLString },
+    bullet_1: { type: BulletsSACType },
+    bullet_2: { type: BulletsSACType },
+    bullet_3: { type: BulletsSACType },
+    titulo_vivienda_1: { type: GraphQLString },
+    titulo_vivienda_2: { type: GraphQLString },
+    texto_vivienda: { type: GraphQLString },
+    carrousel_1: { type: GraphQLString },
+    carrousel_2: { type: GraphQLString },
+    carrousel_3: { type: GraphQLString },
+    carrousel_4: { type: GraphQLString },
+    carrousel_5: { type: GraphQLString }
+  })
+});
+
+const BulletsSACType = new GraphQLObjectType({
+  name: "BulletsSAC",
+  fields: () => ({
+    icono: { type: GraphQLString },
+    texto: { type: GraphQLString }
+  })
+});
+
 //---------------- Forms Types -------------------
 
 const FormCompraType = new GraphQLObjectType({
@@ -371,6 +400,16 @@ const RootQuery = new GraphQLObjectType({
         return axios
           .get(
             "http://betafuenzalida.bylcomunicaciones.com/wp-json/wp/v2/pages/99"
+          )
+          .then(res => res.data);
+      }
+    },
+    pagSAC: {
+      type: PagSACType,
+      resolve(parent, args) {
+        return axios
+          .get(
+            "http://betafuenzalida.bylcomunicaciones.com/wp-json/wp/v2/pages/452"
           )
           .then(res => res.data);
       }
