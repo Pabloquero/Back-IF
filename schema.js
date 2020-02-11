@@ -257,6 +257,15 @@ const ItemOportunidadesType = new GraphQLObjectType({
 const PagSACType = new GraphQLObjectType({
   name: "pagSAC",
   fields: () => ({
+    id: { type: GraphQLInt },
+    status: { type: GraphQLString },
+    acf: { type: ACFSACType }
+  })
+});
+
+const ACFSACType = new GraphQLObjectType({
+  name: "ACFSAC",
+  fields: () => ({
     imagen_fondo: { type: GraphQLString },
     titulo_bullets: { type: GraphQLString },
     titulo_bullets_2: { type: GraphQLString },
