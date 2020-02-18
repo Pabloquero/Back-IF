@@ -279,7 +279,15 @@ const ACFSACType = new GraphQLObjectType({
     carrousel_2: { type: GraphQLString },
     carrousel_3: { type: GraphQLString },
     carrousel_4: { type: GraphQLString },
-    carrousel_5: { type: GraphQLString }
+    carrousel_5: { type: GraphQLString },
+    carrousel_6: { type: GraphQLString },
+    carrousel_7: { type: GraphQLString },
+    carrousel_8: { type: GraphQLString },
+    carrousel_9: { type: GraphQLString },
+    carrousel_10: { type: GraphQLString },
+    link_pdf_1: { type: GraphQLString },
+    link_pdf_2: { type: GraphQLString },
+    link_pdf_3: { type: GraphQLString }
   })
 });
 
