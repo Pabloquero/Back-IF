@@ -285,9 +285,9 @@ const ACFSACType = new GraphQLObjectType({
     carrousel_8: { type: GraphQLString },
     carrousel_9: { type: GraphQLString },
     carrousel_10: { type: GraphQLString },
-    link_pdf_1: { type: GraphQLString },
-    link_pdf_2: { type: GraphQLString },
-    link_pdf_3: { type: GraphQLString }
+    descarga_pdf_1: { type: DescargaSACType },
+    descarga_pdf_2: { type: DescargaSACType },
+    descarga_pdf_3: { type: DescargaSACType }
   })
 });
 
@@ -296,6 +296,14 @@ const BulletsSACType = new GraphQLObjectType({
   fields: () => ({
     icono: { type: GraphQLString },
     texto: { type: GraphQLString }
+  })
+});
+
+const DescargaSACType = new GraphQLObjectType({
+  name: "DescargaSAC",
+  fields: () => ({
+    texto_descarga: { type: GraphQLString },
+    link_descarga: { type: GraphQLString }
   })
 });
 
