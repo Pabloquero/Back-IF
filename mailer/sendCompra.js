@@ -2,16 +2,17 @@
 const nodemailer = require("nodemailer");
 
 module.exports = function sendCompra({
-  args: { nombre, telefono, mail, direccion, comuna, comentarios }
+  args: { nombre, telefono, mail, direccion, comuna, comentarios },
 }) {
   let transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
+    // Datos originales modificados por seguridad
+    host: "host",
     port: 465,
-    secure: true, // true for 465, false for other ports
+    secure: true,
     auth: {
-      user: "no-reply@inmobiliariafuenzalida.com",
-      pass: "noreply08012018"
-    }
+      user: "email",
+      pass: "pass",
+    },
   });
 
   let info = transporter.sendMail({
@@ -19,6 +20,6 @@ module.exports = function sendCompra({
     to:
       "info@inmobiliariafuenzalida.com, alejandraopazo@inmobiliariafuenzalida.com",
     subject: "Nuevo mensaje desde formulario compra de propiedades",
-    html: `Nuevo envío de correo desde compra de propiedades:<br/>Nombre: ${nombre}<br/>Teléfono:${telefono}<br/>Mail: ${mail}<br/>Dirección: ${direccion}<br/>Comuna: ${comuna}<br/>Comentarios: ${comentarios}` // html body
+    html: `Nuevo envío de correo desde compra de propiedades:<br/>Nombre: ${nombre}<br/>Teléfono:${telefono}<br/>Mail: ${mail}<br/>Dirección: ${direccion}<br/>Comuna: ${comuna}<br/>Comentarios: ${comentarios}`, // html body
   });
 };

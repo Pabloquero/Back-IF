@@ -3,7 +3,7 @@ const {
   GraphQLInt,
   GraphQLString,
   GraphQLList,
-  GraphQLSchema
+  GraphQLSchema,
 } = require("graphql");
 
 const FormCompra = require("./models/formCompra");
@@ -21,8 +21,8 @@ const ConveniosType = new GraphQLObjectType({
   fields: () => ({
     id: { type: GraphQLInt },
     status: { type: GraphQLString },
-    acf: { type: ConvenioType }
-  })
+    acf: { type: ConvenioType },
+  }),
 });
 
 const ConvenioType = new GraphQLObjectType({
@@ -32,8 +32,8 @@ const ConvenioType = new GraphQLObjectType({
     proyectos: { type: GraphQLString },
     logo: { type: GraphQLString },
     fondo: { type: GraphQLString },
-    texto: { type: GraphQLString }
-  })
+    texto: { type: GraphQLString },
+  }),
 });
 
 //Component - Proyectos
@@ -43,8 +43,8 @@ const ProyectosType = new GraphQLObjectType({
   fields: () => ({
     id: { type: GraphQLInt },
     status: { type: GraphQLString },
-    acf: { type: ProyectoType }
-  })
+    acf: { type: ProyectoType },
+  }),
 });
 
 const ProyectoType = new GraphQLObjectType({
@@ -57,8 +57,8 @@ const ProyectoType = new GraphQLObjectType({
     bajada: { type: GraphQLString },
     caracteristicas_1: { type: GraphQLString },
     caracteristicas_2: { type: GraphQLString },
-    link: { type: GraphQLString }
-  })
+    link: { type: GraphQLString },
+  }),
 });
 
 //Página - Inicio
@@ -68,8 +68,8 @@ const InicioType = new GraphQLObjectType({
   fields: () => ({
     id: { type: GraphQLInt },
     status: { type: GraphQLString },
-    acf: { type: ACFInicioType }
-  })
+    acf: { type: ACFInicioType },
+  }),
 });
 
 const ACFInicioType = new GraphQLObjectType({
@@ -78,8 +78,8 @@ const ACFInicioType = new GraphQLObjectType({
     diseno: { type: EspaciosDeVidaType },
     ubicacion: { type: EspaciosDeVidaType },
     tecnologia: { type: EspaciosDeVidaType },
-    terminaciones: { type: EspaciosDeVidaType }
-  })
+    terminaciones: { type: EspaciosDeVidaType },
+  }),
 });
 
 const EspaciosDeVidaType = new GraphQLObjectType({
@@ -88,8 +88,8 @@ const EspaciosDeVidaType = new GraphQLObjectType({
     titulo: { type: GraphQLString },
     imagen: { type: GraphQLString },
     descripcion: { type: GraphQLString },
-    alineacion: { type: GraphQLString }
-  })
+    alineacion: { type: GraphQLString },
+  }),
 });
 
 //Pagina Proyectos
@@ -98,15 +98,15 @@ const PagProyectosType = new GraphQLObjectType({
   fields: () => ({
     id: { type: GraphQLInt },
     status: { type: GraphQLString },
-    acf: { type: ACFProyectosType }
-  })
+    acf: { type: ACFProyectosType },
+  }),
 });
 
 const ACFProyectosType = new GraphQLObjectType({
   name: "ACFProyectos",
   fields: () => ({
-    imagen_de_fondo: { type: GraphQLString }
-  })
+    imagen_de_fondo: { type: GraphQLString },
+  }),
 });
 
 //Pagina Compra de Propiedades
@@ -115,8 +115,8 @@ const PagCompraType = new GraphQLObjectType({
   fields: () => ({
     id: { type: GraphQLInt },
     status: { type: GraphQLString },
-    acf: { type: ACFCompraType }
-  })
+    acf: { type: ACFCompraType },
+  }),
 });
 
 const ACFCompraType = new GraphQLObjectType({
@@ -125,8 +125,8 @@ const ACFCompraType = new GraphQLObjectType({
     imagen_de_fondo: { type: GraphQLString },
     titulo: { type: GraphQLString },
     descripcion: { type: GraphQLString },
-    imagen_destacada: { type: GraphQLString }
-  })
+    imagen_destacada: { type: GraphQLString },
+  }),
 });
 
 //Pagina Contacto
@@ -135,8 +135,8 @@ const PagContactoType = new GraphQLObjectType({
   fields: () => ({
     id: { type: GraphQLInt },
     status: { type: GraphQLString },
-    acf: { type: ACFContactoType }
-  })
+    acf: { type: ACFContactoType },
+  }),
 });
 
 const ACFContactoType = new GraphQLObjectType({
@@ -149,8 +149,8 @@ const ACFContactoType = new GraphQLObjectType({
     fono: { type: GraphQLString },
     email_1: { type: GraphQLString },
     email_2: { type: GraphQLString },
-    link_mapa: { type: GraphQLString }
-  })
+    link_mapa: { type: GraphQLString },
+  }),
 });
 
 //Pagina Inversionistas
@@ -159,8 +159,8 @@ const PagInversionistasType = new GraphQLObjectType({
   fields: () => ({
     id: { type: GraphQLInt },
     status: { type: GraphQLString },
-    acf: { type: ACFInversionistasType }
-  })
+    acf: { type: ACFInversionistasType },
+  }),
 });
 
 const ACFInversionistasType = new GraphQLObjectType({
@@ -174,16 +174,16 @@ const ACFInversionistasType = new GraphQLObjectType({
     bullet_3: { type: BulletsType },
     bullet_4: { type: BulletsType },
     bullet_5: { type: BulletsType },
-    bullet_6: { type: BulletsType }
-  })
+    bullet_6: { type: BulletsType },
+  }),
 });
 
 const BulletsType = new GraphQLObjectType({
   name: "Bullets",
   fields: () => ({
     icono: { type: GraphQLString },
-    texto: { type: GraphQLString }
-  })
+    texto: { type: GraphQLString },
+  }),
 });
 
 //Pagina Trayectoria
@@ -192,8 +192,8 @@ const PagTrayectoriaType = new GraphQLObjectType({
   fields: () => ({
     id: { type: GraphQLInt },
     status: { type: GraphQLString },
-    acf: { type: ACFTrayectoriaType }
-  })
+    acf: { type: ACFTrayectoriaType },
+  }),
 });
 
 const ACFTrayectoriaType = new GraphQLObjectType({
@@ -210,8 +210,8 @@ const ACFTrayectoriaType = new GraphQLObjectType({
     item_galeria_6: { type: ItemGaleriaType },
     item_galeria_7: { type: ItemGaleriaType },
     item_galeria_8: { type: ItemGaleriaType },
-    item_galeria_9: { type: ItemGaleriaType }
-  })
+    item_galeria_9: { type: ItemGaleriaType },
+  }),
 });
 
 const ItemGaleriaType = new GraphQLObjectType({
@@ -219,8 +219,8 @@ const ItemGaleriaType = new GraphQLObjectType({
   fields: () => ({
     imagen: { type: GraphQLString },
     proyecto: { type: GraphQLString },
-    comuna: { type: GraphQLString }
-  })
+    comuna: { type: GraphQLString },
+  }),
 });
 
 //Pagina Oportunidades
@@ -229,8 +229,8 @@ const PagOportunidadesType = new GraphQLObjectType({
   fields: () => ({
     id: { type: GraphQLInt },
     status: { type: GraphQLString },
-    acf: { type: ACFOportunidadesType }
-  })
+    acf: { type: ACFOportunidadesType },
+  }),
 });
 
 const ACFOportunidadesType = new GraphQLObjectType({
@@ -238,8 +238,8 @@ const ACFOportunidadesType = new GraphQLObjectType({
   fields: () => ({
     imagen_de_fondo: { type: GraphQLString },
     titulo_oportunidades: { type: GraphQLString },
-    texto_oportunidades: { type: GraphQLString }
-  })
+    texto_oportunidades: { type: GraphQLString },
+  }),
 });
 
 const ItemOportunidadesType = new GraphQLObjectType({
@@ -249,8 +249,8 @@ const ItemOportunidadesType = new GraphQLObjectType({
     imagen_fondo: { type: GraphQLString },
     enunciado: { type: GraphQLString },
     cuerpo: { type: GraphQLString },
-    adheridos: { type: GraphQLString }
-  })
+    adheridos: { type: GraphQLString },
+  }),
 });
 
 //Pagina Servicio al CLiente
@@ -259,8 +259,8 @@ const PagSACType = new GraphQLObjectType({
   fields: () => ({
     id: { type: GraphQLInt },
     status: { type: GraphQLString },
-    acf: { type: ACFSACType }
-  })
+    acf: { type: ACFSACType },
+  }),
 });
 
 const ACFSACType = new GraphQLObjectType({
@@ -287,24 +287,24 @@ const ACFSACType = new GraphQLObjectType({
     carrousel_10: { type: GraphQLString },
     descarga_pdf_1: { type: DescargaSACType },
     descarga_pdf_2: { type: DescargaSACType },
-    descarga_pdf_3: { type: DescargaSACType }
-  })
+    descarga_pdf_3: { type: DescargaSACType },
+  }),
 });
 
 const BulletsSACType = new GraphQLObjectType({
   name: "BulletsSAC",
   fields: () => ({
     icono: { type: GraphQLString },
-    texto: { type: GraphQLString }
-  })
+    texto: { type: GraphQLString },
+  }),
 });
 
 const DescargaSACType = new GraphQLObjectType({
   name: "DescargaSAC",
   fields: () => ({
     texto_descarga: { type: GraphQLString },
-    link_descarga: { type: GraphQLString }
-  })
+    link_descarga: { type: GraphQLString },
+  }),
 });
 
 //---------------- Forms Types -------------------
@@ -317,8 +317,8 @@ const FormCompraType = new GraphQLObjectType({
     mail: { type: GraphQLString },
     direccion: { type: GraphQLString },
     comuna: { type: GraphQLString },
-    comentarios: { type: GraphQLString }
-  })
+    comentarios: { type: GraphQLString },
+  }),
 });
 
 const FormContactoType = new GraphQLObjectType({
@@ -328,8 +328,8 @@ const FormContactoType = new GraphQLObjectType({
     telefono: { type: GraphQLString },
     mail: { type: GraphQLString },
     mensaje: { type: GraphQLString },
-    categoria: { type: GraphQLString }
-  })
+    categoria: { type: GraphQLString },
+  }),
 });
 
 // Consulta Raíz
@@ -346,100 +346,82 @@ const RootQuery = new GraphQLObjectType({
           .get(
             "http://betafuenzalida.bylcomunicaciones.com/wp-json/wp/v2/proyectos"
           )
-          .then(res => res.data);
-      }
+          .then((res) => res.data);
+      },
     },
     convenios: {
       type: new GraphQLList(ConveniosType),
       resolve(parent, args) {
         return axios
-          .get(
-            "http://betafuenzalida.bylcomunicaciones.com/wp-json/wp/v2/convenios"
-          )
-          .then(res => res.data);
-      }
+          .get("http://URLMODIFICADAPORSEGURIDAD")
+          .then((res) => res.data);
+      },
     },
     inicio: {
       type: InicioType,
       resolve(parent, args) {
         return axios
-          .get(
-            "http://betafuenzalida.bylcomunicaciones.com/wp-json/wp/v2/pages/41"
-          )
-          .then(res => res.data);
-      }
+          .get("http://URLMODIFICADAPORSEGURIDAD")
+          .then((res) => res.data);
+      },
     },
     pagProyectos: {
       type: PagProyectosType,
       resolve(parent, args) {
         return axios
-          .get(
-            "http://betafuenzalida.bylcomunicaciones.com/wp-json/wp/v2/pages/76"
-          )
-          .then(res => res.data);
-      }
+          .get("http://URLMODIFICADAPORSEGURIDAD")
+          .then((res) => res.data);
+      },
     },
     pagCompra: {
       type: PagCompraType,
       resolve(parent, args) {
         return axios
-          .get(
-            "http://betafuenzalida.bylcomunicaciones.com/wp-json/wp/v2/pages/85"
-          )
-          .then(res => res.data);
-      }
+          .get("http://URLMODIFICADAPORSEGURIDAD")
+          .then((res) => res.data);
+      },
     },
     pagInversionistas: {
       type: PagInversionistasType,
       resolve(parent, args) {
         return axios
-          .get(
-            "http://betafuenzalida.bylcomunicaciones.com/wp-json/wp/v2/pages/128"
-          )
-          .then(res => res.data);
-      }
+          .get("http://URLMODIFICADAPORSEGURIDAD")
+          .then((res) => res.data);
+      },
     },
     pagTrayectoria: {
       type: PagTrayectoriaType,
       resolve(parent, args) {
         return axios
-          .get(
-            "http://betafuenzalida.bylcomunicaciones.com/wp-json/wp/v2/pages/203"
-          )
-          .then(res => res.data);
-      }
+          .get("http://URLMODIFICADAPORSEGURIDAD")
+          .then((res) => res.data);
+      },
     },
     pagOportunidades: {
       type: PagOportunidadesType,
       resolve(parent, args) {
         return axios
-          .get(
-            "http://betafuenzalida.bylcomunicaciones.com/wp-json/wp/v2/pages/277"
-          )
-          .then(res => res.data);
-      }
+          .get("http://URLMODIFICADAPORSEGURIDAD")
+          .then((res) => res.data);
+      },
     },
     pagContacto: {
       type: PagContactoType,
       resolve(parent, args) {
         return axios
-          .get(
-            "http://betafuenzalida.bylcomunicaciones.com/wp-json/wp/v2/pages/99"
-          )
-          .then(res => res.data);
-      }
+          .get("http://URLMODIFICADAPORSEGURIDAD")
+          .then((res) => res.data);
+      },
     },
     pagSAC: {
       type: PagSACType,
       resolve(parent, args) {
         return axios
-          .get(
-            "http://betafuenzalida.bylcomunicaciones.com/wp-json/wp/v2/pages/452"
-          )
-          .then(res => res.data);
-      }
-    }
-  }
+          .get("http://URLMODIFICADAPORSEGURIDAD")
+          .then((res) => res.data);
+      },
+    },
+  },
 });
 
 const Mutation = new GraphQLObjectType({
@@ -453,7 +435,7 @@ const Mutation = new GraphQLObjectType({
         mail: { type: GraphQLString },
         direccion: { type: GraphQLString },
         comuna: { type: GraphQLString },
-        comentarios: { type: GraphQLString }
+        comentarios: { type: GraphQLString },
       },
       resolve(parent, args) {
         let formCompra = new FormCompra({
@@ -462,12 +444,12 @@ const Mutation = new GraphQLObjectType({
           mail: args.mail,
           direccion: args.direccion,
           comuna: args.comuna,
-          comentarios: args.comentarios
+          comentarios: args.comentarios,
         });
         formCompra.save();
         SendCompra({ args });
         return console.log("ok!");
-      }
+      },
     },
     insertFormContacto: {
       type: FormContactoType,
@@ -476,7 +458,7 @@ const Mutation = new GraphQLObjectType({
         telefono: { type: GraphQLString },
         mail: { type: GraphQLString },
         mensaje: { type: GraphQLString },
-        categoria: { type: GraphQLString }
+        categoria: { type: GraphQLString },
       },
       resolve(parent, args) {
         let formContacto = new FormContacto({
@@ -484,17 +466,17 @@ const Mutation = new GraphQLObjectType({
           telefono: args.telefono,
           mail: args.mail,
           mensaje: args.mensaje,
-          categoria: args.categoria
+          categoria: args.categoria,
         });
         formContacto.save();
         SendContacto({ args });
         return console.log("ok!");
-      }
-    }
-  }
+      },
+    },
+  },
 });
 
 module.exports = new GraphQLSchema({
   query: RootQuery,
-  mutation: Mutation
+  mutation: Mutation,
 });
